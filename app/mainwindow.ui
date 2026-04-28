@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>1280</width><height>720</height></rect>
+  </property>
+  <property name="windowTitle">
+   <string>SEHFELD — Industrial Visual Inspection</string>
+  </property>
+  <property name="minimumSize">
+   <size><width>1024</width><height>600</height></size>
+  </property>
+
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="rootLayout">
+    <property name="spacing"><number>0</number></property>
+    <property name="leftMargin"><number>0</number></property>
+    <property name="topMargin"><number>0</number></property>
+    <property name="rightMargin"><number>0</number></property>
+    <property name="bottomMargin"><number>0</number></property>
+
+    <!-- HEADER -->
+    <item>
+     <widget class="QWidget" name="wHeader">
+      <property name="minimumHeight"><number>46</number></property>
+      <property name="maximumHeight"><number>46</number></property>
+      <layout class="QHBoxLayout" name="headerLayout">
+       <property name="spacing"><number>0</number></property>
+       <property name="leftMargin"><number>0</number></property>
+       <property name="topMargin"><number>0</number></property>
+       <property name="rightMargin"><number>0</number></property>
+       <property name="bottomMargin"><number>0</number></property>
+       <item><widget class="QLabel" name="lblBrand"><property name="text"><string>SEHFELD</string></property></widget></item>
+       <item><widget class="QPushButton" name="btnTabLive"><property name="text"><string>Live</string></property><property name="checkable"><bool>true</bool></property><property name="checked"><bool>true</bool></property></widget></item>
+       <item><widget class="QPushButton" name="btnTabBatch"><property name="text"><string>Batch</string></property><property name="checkable"><bool>true</bool></property></widget></item>
+       <item><widget class="QPushButton" name="btnTabHistory"><property name="text"><string>History</string></property><property name="checkable"><bool>true</bool></property></widget></item>
+       <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer></item>
+       <item><widget class="QLabel" name="lblOnlineWord"><property name="text"><string>Online</string></property></widget></item>
+       <item><widget class="QLabel" name="lblClock"><property name="text"><string>00:00:00</string></property></widget></item>
+      </layout>
+     </widget>
+    </item>
+
+    <!-- STACKED -->
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+
+      <!-- PAGE 0: LIVE -->
+      <widget class="QWidget" name="pageLive">
+       <layout class="QVBoxLayout" name="liveOuterLayout">
+        <property name="spacing"><number>0</number></property>
+        <property name="leftMargin"><number>0</number></property>
+        <property name="topMargin"><number>0</number></property>
+        <property name="rightMargin"><number>0</number></property>
+        <property name="bottomMargin"><number>0</number></property>
+
+        <!-- TOOLBAR -->
+        <item>
+         <widget class="QWidget" name="wTopRow">
+          <property name="minimumHeight"><number>38</number></property>
+          <property name="maximumHeight"><number>38</number></property>
+          <layout class="QHBoxLayout" name="topRowLayout">
+           <property name="spacing"><number>0</number></property>
+           <property name="leftMargin"><number>0</number></property>
+           <property name="topMargin"><number>0</number></property>
+           <property name="rightMargin"><number>0</number></property>
+           <property name="bottomMargin"><number>0</number></property>
+           <item>
+            <widget class="QLabel" name="lblSecModel">
+             <property name="text"><string>MODEL</string></property>
+             <property name="minimumWidth"><number>240</number></property>
+             <property name="maximumWidth"><number>240</number></property>
+             <property name="minimumHeight"><number>38</number></property>
+             <property name="maximumHeight"><number>38</number></property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="wToolbar">
+             <property name="minimumHeight"><number>38</number></property>
+             <property name="maximumHeight"><number>38</number></property>
+             <layout class="QHBoxLayout" name="tbLayout">
+              <property name="spacing"><number>6</number></property>
+              <property name="leftMargin"><number>0</number></property>
+              <property name="topMargin"><number>0</number></property>
+              <property name="rightMargin"><number>0</number></property>
+              <property name="bottomMargin"><number>0</number></property>
+              <item><widget class="QPushButton" name="btnLoad"><property name="text"><string>Open Image</string></property></widget></item>
+              <item><widget class="QPushButton" name="btnRun"><property name="text"><string>▶  Run Inspection</string></property><property name="enabled"><bool>false</bool></property></widget></item>
+              <item><widget class="QPushButton" name="btnExport"><property name="text"><string>Export JSON</string></property><property name="enabled"><bool>false</bool></property></widget></item>
+              <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>20</height></size></property></spacer></item>
+              <item><widget class="QLabel" name="lblFileInfo"><property name="text"><string></string></property></widget></item>
+              <item>
+               <widget class="QProgressBar" name="progressBar">
+                <property name="visible"><bool>false</bool></property>
+                <property name="minimum"><number>0</number></property>
+                <property name="maximum"><number>0</number></property>
+                <property name="textVisible"><bool>false</bool></property>
+                <property name="minimumWidth"><number>80</number></property>
+                <property name="maximumWidth"><number>80</number></property>
+                <property name="maximumHeight"><number>3</number></property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+
+        <!-- BOTTOM ROW: Left panel + Right content -->
+        <item>
+         <layout class="QHBoxLayout" name="mainRowLayout">
+          <property name="spacing"><number>0</number></property>
+          <property name="leftMargin"><number>0</number></property>
+          <property name="topMargin"><number>0</number></property>
+          <property name="rightMargin"><number>0</number></property>
+          <property name="bottomMargin"><number>0</number></property>
+
+          <!-- LEFT PANEL -->
+          <item>
+           <widget class="QWidget" name="wLeft">
+            <property name="minimumWidth"><number>240</number></property>
+            <property name="maximumWidth"><number>240</number></property>
+            <layout class="QVBoxLayout" name="leftLayout">
+             <property name="spacing"><number>0</number></property>
+             <property name="leftMargin"><number>0</number></property>
+             <property name="topMargin"><number>0</number></property>
+             <property name="rightMargin"><number>0</number></property>
+             <property name="bottomMargin"><number>0</number></property>
+
+           <item>
+            <widget class="QWidget" name="wMcard">
+             <layout class="QVBoxLayout" name="mcardLayout">
+              <property name="spacing"><number>2</number></property>
+              <property name="leftMargin"><number>10</number></property>
+              <property name="topMargin"><number>16</number></property>
+              <property name="rightMargin"><number>10</number></property>
+              <property name="bottomMargin"><number>16</number></property>
+              <item><widget class="QLabel" name="lblModelName"><property name="text"><string>WideResNet-50</string></property></widget></item>
+	          <property name="alignment"><set>Qt::AlignCenter</set></property>
+              <item><widget class="QLabel" name="lblModelSub"><property name="text"><string>PatchCore · MVTec AD</string></property></widget></item>
+	          <property name="alignment"><set>Qt::AlignCenter</set></property>
+             </layout>
+            </widget>
+           </item>
+
+           <item>
+            <layout class="QGridLayout" name="kpiGrid">
+             <property name="spacing"><number>4</number></property>
+             <property name="leftMargin"><number>8</number></property>
+             <property name="topMargin"><number>6</number></property>
+             <property name="rightMargin"><number>8</number></property>
+             <property name="bottomMargin"><number>6</number></property>
+             <item row="0" column="0"><widget class="QWidget" name="wKpi1"><layout class="QVBoxLayout" name="k1l"><property name="spacing"><number>2</number></property><property name="leftMargin"><number>6</number></property><property name="topMargin"><number>5</number></property><property name="rightMargin"><number>6</number></property><property name="bottomMargin"><number>5</number></property><item><widget class="QLabel" name="lblKv1"><property name="text"><string>98.89%</string></property></widget></item><item><widget class="QLabel" name="lblKl1"><property name="text"><string>AUROC</string></property></widget></item></layout></widget></item>
+             <item row="0" column="1"><widget class="QWidget" name="wKpi2"><layout class="QVBoxLayout" name="k2l"><property name="spacing"><number>2</number></property><property name="leftMargin"><number>6</number></property><property name="topMargin"><number>5</number></property><property name="rightMargin"><number>6</number></property><property name="bottomMargin"><number>5</number></property><item><widget class="QLabel" name="lblKv2"><property name="text"><string>—</string></property></widget></item><item><widget class="QLabel" name="lblKl2"><property name="text"><string>Inference</string></property></widget></item></layout></widget></item>
+             <item row="1" column="0"><widget class="QWidget" name="wKpi3"><layout class="QVBoxLayout" name="k3l"><property name="spacing"><number>2</number></property><property name="leftMargin"><number>6</number></property><property name="topMargin"><number>5</number></property><property name="rightMargin"><number>6</number></property><property name="bottomMargin"><number>5</number></property><item><widget class="QLabel" name="lblKv3"><property name="text"><string>99.20%</string></property></widget></item><item><widget class="QLabel" name="lblKl3"><property name="text"><string>F1 Score</string></property></widget></item></layout></widget></item>
+             <item row="1" column="1"><widget class="QWidget" name="wKpi4"><layout class="QVBoxLayout" name="k4l"><property name="spacing"><number>2</number></property><property name="leftMargin"><number>6</number></property><property name="topMargin"><number>5</number></property><property name="rightMargin"><number>6</number></property><property name="bottomMargin"><number>5</number></property><item><widget class="QLabel" name="lblKv4"><property name="text"><string>ONNX</string></property></widget></item><item><widget class="QLabel" name="lblKl4"><property name="text"><string>Runtime</string></property></widget></item></layout></widget></item>
+            </layout>
+           </item>
+
+           <item><widget class="QLabel" name="lblSecStats"><property name="text"><string>SESSION STATS</string></property><property name="minimumHeight"><number>38</number></property><property name="maximumHeight"><number>38</number></property></widget></item>
+           <item>
+            <widget class="QWidget" name="wStats">
+             <layout class="QGridLayout" name="statsGrid">
+              <property name="spacing"><number>6</number></property>
+              <property name="leftMargin"><number>10</number></property>
+              <property name="topMargin"><number>6</number></property>
+              <property name="rightMargin"><number>10</number></property>
+              <property name="bottomMargin"><number>6</number></property>
+              <item row="0" column="0"><widget class="QLabel" name="lblStInspK"><property name="text"><string>Inspected</string></property></widget></item>
+              <item row="0" column="1"><widget class="QLabel" name="lblStInspV"><property name="text"><string>0</string></property></widget></item>
+              <item row="1" column="0"><widget class="QLabel" name="lblStPassK"><property name="text"><string>Passed</string></property></widget></item>
+              <item row="1" column="1"><widget class="QLabel" name="lblStPassV"><property name="text"><string>0</string></property></widget></item>
+              <item row="2" column="0"><widget class="QLabel" name="lblStDefK"><property name="text"><string>Defects</string></property></widget></item>
+              <item row="2" column="1"><widget class="QLabel" name="lblStDefV"><property name="text"><string>0</string></property></widget></item>
+              <item row="3" column="0"><widget class="QLabel" name="lblStRateK"><property name="text"><string>Defect Rate</string></property></widget></item>
+              <item row="3" column="1"><widget class="QLabel" name="lblStRateV"><property name="text"><string>—</string></property></widget></item>
+             </layout>
+            </widget>
+           </item>
+
+           <item><widget class="QLabel" name="lblSecLog"><property name="text"><string>LOG</string></property><property name="minimumHeight"><number>38</number></property><property name="maximumHeight"><number>38</number></property></widget></item>
+           <item>
+            <widget class="QTextEdit" name="txtLog">
+             <property name="readOnly"><bool>true</bool></property>
+            </widget>
+           </item>
+
+          </layout>
+           </widget>
+          </item>
+
+          <!-- RIGHT CONTENT -->
+          <item>
+           <widget class="QWidget" name="wLiveRight">
+            <layout class="QVBoxLayout" name="liveRightLayout">
+             <property name="spacing"><number>0</number></property>
+             <property name="leftMargin"><number>0</number></property>
+             <property name="topMargin"><number>0</number></property>
+             <property name="rightMargin"><number>0</number></property>
+             <property name="bottomMargin"><number>0</number></property>
+
+           <!-- FEEDS -->
+           <item>
+            <layout class="QHBoxLayout" name="feedsLayout">
+             <property name="spacing"><number>0</number></property>
+             <property name="leftMargin"><number>0</number></property>
+             <property name="topMargin"><number>0</number></property>
+             <property name="rightMargin"><number>0</number></property>
+             <property name="bottomMargin"><number>0</number></property>
+             <item>
+              <widget class="QWidget" name="wFeedInput">
+               <property name="styleSheet"><string>QWidget#wFeedInput { border: 1px solid #1e2640; }</string></property>
+               <layout class="QVBoxLayout" name="fiLayout">
+                <property name="spacing"><number>0</number></property>
+                <property name="leftMargin"><number>0</number></property>
+                <property name="topMargin"><number>0</number></property>
+                <property name="rightMargin"><number>0</number></property>
+                <property name="bottomMargin"><number>0</number></property>
+                <item>
+                 <widget class="QWidget" name="wFiHdr">
+                  <property name="minimumHeight"><number>28</number></property>
+                  <property name="maximumHeight"><number>28</number></property>
+                  <layout class="QHBoxLayout" name="fihLayout">
+                   <property name="spacing"><number>8</number></property>
+                   <property name="leftMargin"><number>4</number></property>
+                   <property name="topMargin"><number>0</number></property>
+                   <property name="rightMargin"><number>10</number></property>
+                   <property name="bottomMargin"><number>0</number></property>
+                   <item><widget class="QLabel" name="lblInputTitle"><property name="text"><string>INPUT IMAGE</string></property></widget></item>
+                   <item><widget class="QLabel" name="lblInputMeta"><property name="text"><string></string></property></widget></item>
+                   <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>20</height></size></property></spacer></item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblInputImage">
+                  <property name="text"><string>Open an image to begin</string></property>
+                  <property name="alignment"><set>Qt::AlignCenter</set></property>
+                  <property name="scaledContents"><bool>false</bool></property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QWidget" name="wFeedHeatmap">
+               <property name="styleSheet"><string>QWidget#wFeedHeatmap { border: 1px solid #1e2640; }</string></property>
+               <layout class="QVBoxLayout" name="fhLayout">
+                <property name="spacing"><number>0</number></property>
+                <property name="leftMargin"><number>0</number></property>
+                <property name="topMargin"><number>0</number></property>
+                <property name="rightMargin"><number>0</number></property>
+                <property name="bottomMargin"><number>0</number></property>
+                <item>
+                 <widget class="QWidget" name="wFhHdr">
+                  <property name="minimumHeight"><number>28</number></property>
+                  <property name="maximumHeight"><number>28</number></property>
+                  <layout class="QHBoxLayout" name="fhhLayout">
+                   <property name="spacing"><number>8</number></property>
+                   <property name="leftMargin"><number>4</number></property>
+                   <property name="topMargin"><number>0</number></property>
+                   <property name="rightMargin"><number>10</number></property>
+                   <property name="bottomMargin"><number>0</number></property>
+                   <item><widget class="QLabel" name="lblHeatmapTitle"><property name="text"><string>ANOMALY HEATMAP</string></property></widget></item>
+                   <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>20</height></size></property></spacer></item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblHeatmap">
+                  <property name="text"><string>Heatmap will appear after analysis</string></property>
+                  <property name="alignment"><set>Qt::AlignCenter</set></property>
+                  <property name="scaledContents"><bool>false</bool></property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+
+           <!-- RESULT STRIP -->
+           <item>
+            <widget class="QWidget" name="wResultStrip">
+             <property name="minimumHeight"><number>118</number></property>
+             <property name="maximumHeight"><number>118</number></property>
+             <layout class="QHBoxLayout" name="stripLayout">
+              <property name="spacing"><number>0</number></property>
+              <property name="leftMargin"><number>0</number></property>
+              <property name="topMargin"><number>0</number></property>
+              <property name="rightMargin"><number>0</number></property>
+              <property name="bottomMargin"><number>0</number></property>
+              <item>
+               <widget class="QWidget" name="wSVerdict">
+                <property name="minimumWidth"><number>240</number></property>
+                <property name="maximumWidth"><number>340</number></property>
+                <layout class="QVBoxLayout" name="svLayout">
+                 <property name="spacing"><number>4</number></property>
+                 <property name="leftMargin"><number>16</number></property>
+                 <property name="topMargin"><number>16</number></property>
+                 <property name="rightMargin"><number>16</number></property>
+                 <property name="bottomMargin"><number>16</number></property>
+                 <item><widget class="QLabel" name="lblSVIcon"><property name="text"><string>—</string></property></widget></item>
+                 <item><widget class="QLabel" name="lblSVSub"><property name="text"><string>Sample #0  ·  Frame #0</string></property></widget></item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="wSBar">
+                <property name="minimumWidth"><number>200</number></property>
+                <property name="maximumWidth"><number>320</number></property>
+                <layout class="QVBoxLayout" name="sbLayout">
+                 <property name="spacing"><number>4</number></property>
+                 <property name="leftMargin"><number>16</number></property>
+                 <property name="topMargin"><number>16</number></property>
+                 <property name="rightMargin"><number>16</number></property>
+                 <property name="bottomMargin"><number>16</number></property>
+                 <item><widget class="QLabel" name="lblSBLbl"><property name="text"><string>Anomaly Score</string></property></widget></item>
+                 <item><widget class="QProgressBar" name="scoreBar"><property name="minimum"><number>0</number></property><property name="maximum"><number>1000</number></property><property name="value"><number>0</number></property><property name="textVisible"><bool>false</bool></property><property name="maximumHeight"><number>5</number></property></widget></item>
+                 <item><widget class="QLabel" name="lblSBVal"><property name="text"><string>—</string></property></widget></item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="wSDetails">
+                <layout class="QGridLayout" name="sdLayout">
+                 <property name="spacing"><number>12</number></property>
+                 <property name="leftMargin"><number>16</number></property>
+                 <property name="topMargin"><number>20</number></property>
+                 <property name="rightMargin"><number>16</number></property>
+                 <property name="bottomMargin"><number>20</number></property>
+                 <item row="0" column="0"><widget class="QLabel" name="lblSDLocK"><property name="text"><string>LOCATION</string></property></widget></item>
+                 <item row="1" column="0"><widget class="QLabel" name="lblSDLocV"><property name="text"><string>—</string></property></widget></item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+
+          </layout>
+           </widget>
+          </item>
+
+         </layout>
+        </item>
+
+       </layout>
+      </widget>
+
+      <!-- PAGE 1: BATCH -->
+      <widget class="QWidget" name="pageBatch">
+       <layout class="QVBoxLayout" name="batchOuterLayout">
+        <property name="spacing"><number>0</number></property>
+        <property name="leftMargin"><number>0</number></property>
+        <property name="topMargin"><number>0</number></property>
+        <property name="rightMargin"><number>0</number></property>
+        <property name="bottomMargin"><number>0</number></property>
+        <item>
+         <widget class="QWidget" name="wBatchToolbar">
+          <property name="minimumHeight"><number>38</number></property>
+          <property name="maximumHeight"><number>38</number></property>
+          <layout class="QHBoxLayout" name="btbLayout">
+           <property name="spacing"><number>6</number></property>
+           <property name="leftMargin"><number>0</number></property>
+           <property name="topMargin"><number>0</number></property>
+           <property name="rightMargin"><number>0</number></property>
+           <property name="bottomMargin"><number>0</number></property>
+           <item><widget class="QPushButton" name="btnBatchLoad"><property name="text"><string>Open Folder</string></property></widget></item>
+           <item><widget class="QPushButton" name="btnBatchRun"><property name="text"><string>▶  Run Batch</string></property><property name="enabled"><bool>false</bool></property></widget></item>
+           <item><widget class="QPushButton" name="btnBatchExport"><property name="text"><string>Export All JSON</string></property><property name="enabled"><bool>false</bool></property></widget></item>
+           <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>20</height></size></property></spacer></item>
+           <item><widget class="QLabel" name="lblBatchStatus"><property name="text"><string>No folder selected</string></property><property name="autoFillBackground"><bool>true</bool></property></widget></item>
+           <item><widget class="QProgressBar" name="batchProgress"><property name="minimum"><number>0</number></property><property name="maximum"><number>100</number></property><property name="value"><number>0</number></property><property name="visible"><bool>false</bool></property><property name="minimumWidth"><number>160</number></property><property name="maximumWidth"><number>160</number></property><property name="maximumHeight"><number>4</number></property></widget></item>
+          </layout>
+         </widget>
+        </item>
+        <item><widget class="QListWidget" name="lstBatch"><property name="alternatingRowColors"><bool>true</bool></property></widget></item>
+        <item><widget class="QLabel" name="lblBatchSummary"><property name="text"><string></string></property><property name="alignment">
+	<set>Qt::AlignCenter</set></property><property name="autoFillBackground"><bool>true</bool></property>
+<property name="minimumHeight"><number>36</number></property><property name="maximumHeight"><number>36</number></property></widget></item>
+       </layout>
+      </widget>
+
+      <!-- PAGE 2: HISTORY -->
+      <widget class="QWidget" name="pageHistory">
+       <layout class="QVBoxLayout" name="histOuterLayout">
+        <property name="spacing"><number>0</number></property>
+        <property name="leftMargin"><number>0</number></property>
+        <property name="topMargin"><number>0</number></property>
+        <property name="rightMargin"><number>0</number></property>
+        <property name="bottomMargin"><number>0</number></property>
+        <item>
+         <widget class="QWidget" name="wHistToolbar">
+          <property name="minimumHeight"><number>38</number></property>
+          <property name="maximumHeight"><number>38</number></property>
+          <layout class="QHBoxLayout" name="htbLayout">
+           <property name="spacing"><number>6</number></property>
+           <property name="leftMargin"><number>0</number></property>
+           <property name="topMargin"><number>0</number></property>
+           <property name="rightMargin"><number>0</number></property>
+           <property name="bottomMargin"><number>0</number></property>
+           <item><widget class="QPushButton" name="btnExportAll"><property name="text"><string>Export All JSON</string></property><property name="enabled"><bool>false</bool></property></widget></item>
+           <item><widget class="QPushButton" name="btnClearHistory"><property name="text"><string>Clear History</string></property></widget></item>
+           <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>20</height></size></property></spacer></item>
+           <item><widget class="QLabel" name="lblHistCount"><property name="text"><string>0 records</string></property></widget></item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tblHistory">
+          <property name="alternatingRowColors"><bool>true</bool></property>
+          <property name="selectionBehavior"><enum>QAbstractItemView::SelectRows</enum></property>
+          <property name="editTriggers"><set>QAbstractItemView::NoEditTriggers</set></property>
+          <property name="showGrid"><bool>false</bool></property>
+          <column><property name="text"><string>#</string></property></column>
+          <column><property name="text"><string>Timestamp</string></property></column>
+          <column><property name="text"><string>Image</string></property></column>
+          <column><property name="text"><string>Result</string></property></column>
+          <column><property name="text"><string>Score</string></property></column>
+          <column><property name="text"><string>Location</string></property></column>
+          <column><property name="text"><string>Inference</string></property></column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="0" margin="0"/>
+</ui>
