@@ -34,21 +34,17 @@ Thumbs.db
 **/.qmlls.ini
 
 # qtcreator generated files
-
 *.pro.user*
 *.qbs.user*
 CMakeLists.txt.user*
 
 # xemacs temporary files
-
 *.flc
 
 # Vim temporary files
-
 .*.swp
 
 # Visual Studio generated files
-
 *.ib_pdb_index
 *.idb
 *.ilk
@@ -62,23 +58,20 @@ CMakeLists.txt.user*
 *.opensdf
 *.vcxproj
 *vcxproj.*
+.vs/
 
 # MinGW generated files
-
 *.Debug
 *.Release
 
 # Python byte code
-
 *.pyc
 
 # Binaries
-
 *.dll
 *.exe
 
 # Directories with generated files
-
 .moc/
 .obj/
 .pch/
@@ -88,5 +81,4 @@ CMakeLists.txt.user*
 /.qtcreator/
 
 # Model Files
-
 /model/
